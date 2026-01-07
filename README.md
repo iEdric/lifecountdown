@@ -1,69 +1,169 @@
-# React + TypeScript + Vite
+# Chronos Mirror - 生命之镜
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> "Dust thou art, and unto dust shalt thou return."  
+> 一个基于 Memento Mori 哲学理念的生命倒计时可视化应用
 
-Currently, two official plugins are available:
+“本项目由阿里云ESA提供加速、计算和保护”
+![本地路径](public/esa.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📖 项目简介
 
-## Expanding the ESLint configuration
+Chronos Mirror（生命之镜）是一个交互式的生命可视化工具，通过直观的方式展示你已度过和剩余的生命时间。每个方格代表你生命中的一周，帮助你更深刻地理解时间的有限性和珍贵性。
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ 主要功能
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🎯 核心功能
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **生命网格可视化** - 以网格形式展示整个生命周期，每个方格代表一周
+- **实时统计** - 显示已逝生命百分比、剩余周数、天数、小时和秒数
+- **人生清单** - 管理你的遗愿清单（Bucket List），追踪未完成的目标
+- **阶段警醒** - 根据年龄阶段提供个性化的生命警醒文字
+- **海报生成** - 生成精美的生命报告海报，支持保存和分享
+- **多语言支持** - 支持中文和英文双语界面
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 📊 统计信息
+
+- 生命进度百分比（精确到小数点后4位）
+- 剩余时间倒计时（秒级实时更新）
+- 剩余睡眠时间估算
+- 剩余工作时间估算
+- 自由时间提醒
+
+## 🛠️ 技术栈
+
+- **前端框架**: React 19.1.1
+- **开发语言**: TypeScript 5.8.3
+- **构建工具**: Vite 5.4.11
+- **样式方案**: Tailwind CSS (CDN)
+- **图标库**: Lucide React
+- **字体**: Inter, Playfair Display
+
+## 📦 安装与运行
+
+### 环境要求
+
+- Node.js 18+ (推荐 20.19+ 或 22.12+)
+- npm 或 yarn
+
+### 安装依赖
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 开发模式
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+应用将在 `http://localhost:3000` 启动
+
+### 构建生产版本
+
+```bash
+npm run build
+```
+
+### 预览生产构建
+
+```bash
+npm run preview
+```
+
+## 🎨 项目结构
+
+```
+src/
+├── components/          # React 组件
+│   ├── LifeGrid.tsx    # 生命网格可视化组件
+│   ├── LifeList.tsx    # 人生清单组件
+│   ├── ProfileSetup.tsx # 用户配置组件
+│   └── StatsCard.tsx   # 统计卡片组件
+├── types.ts            # TypeScript 类型定义
+├── utils.ts            # 工具函数（生命统计计算）
+├── translations.ts     # 多语言翻译
+├── App.tsx             # 主应用组件
+├── main.tsx            # 应用入口
+└── index.css           # 全局样式
+```
+
+## 💡 使用说明
+
+1. **首次使用**
+   - 打开应用后，会显示配置界面
+   - 输入你的姓名、出生日期和预期寿命
+   - 点击"保存并开启"开始使用
+
+2. **查看生命网格**
+   - 黑色方格代表已逝去的时间
+   - 白色/灰色方格代表剩余的时间
+   - 红色闪烁的方格代表当前周
+
+3. **管理人生清单**
+   - 添加你想在死前完成的目标
+   - 标记已完成的项目
+   - 删除不需要的项目
+
+4. **生成海报**
+   - 点击"分享生命报告卡"按钮
+   - 等待海报生成完成
+   - 长按图片保存到相册
+
+5. **设置与重置**
+   - 点击设置图标可以重新配置个人信息
+   - 点击删除图标可以清空所有数据
+
+## 🌍 多语言支持
+
+应用支持以下语言：
+- 🇺🇸 English
+- 🇨🇳 简体中文
+
+语言会根据浏览器设置自动选择，也可以手动切换。
+
+## 💾 数据存储
+
+所有数据存储在浏览器的 `localStorage` 中：
+- `chronos_profile` - 用户个人信息
+- `chronos_bucket` - 人生清单
+- `chronos_lang` - 语言偏好
+
+数据完全本地存储，不会上传到任何服务器。
+
+## 🎯 设计理念
+
+这个应用基于 **Memento Mori**（记住死亡）的哲学理念：
+- 提醒我们生命的有限性
+- 鼓励我们珍惜当下
+- 激励我们追求有意义的目标
+- 帮助我们更好地规划人生
+
+## 📝 开发说明
+
+### 代码规范
+
+- 使用 TypeScript 进行类型检查
+- 遵循 ESLint 代码规范
+- 使用类型导入 (`import type`) 优化构建
+
+### 浏览器兼容性
+
+- Chrome/Edge (推荐)
+- Firefox
+- Safari
+- 移动端浏览器
+
+## 📄 许可证
+
+本项目为私有项目。
+
+## 🙏 致谢
+
+- 灵感来源于 Memento Mori 哲学和生命可视化概念
+- 使用 [Tailwind CSS](https://tailwindcss.com/) 进行样式设计
+- 使用 [Lucide](https://lucide.dev/) 提供图标
+
+---
+
+**记住：时间是最宝贵的资源，请珍惜每一刻。** ⏳
