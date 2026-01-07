@@ -318,7 +318,7 @@ const App: React.FC = () => {
 
           <div className="lg:col-span-4 space-y-6">
             <div className="sticky top-28 space-y-6">
-              <StatsCard stats={stats} profile={profile} lang={lang} />
+              <StatsCard stats={stats} lang={lang} />
               <div className="bg-red-950/20 p-6 rounded-3xl border border-red-900/30">
                 <h4 className="text-red-500 text-xs font-bold uppercase tracking-widest mb-4 flex items-center gap-2"><Skull size={14} /> {t.fatalWarning}</h4>
                 <ul className="space-y-4 text-sm">

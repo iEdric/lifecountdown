@@ -1,17 +1,16 @@
 
 import React from 'react';
-import type { LifeStats, UserProfile } from '../types';
+import type { LifeStats } from '../types';
 import { translations } from '../translations';
 import type { Language } from '../translations';
 import { Clock } from 'lucide-react';
 
 interface Props {
   stats: LifeStats | null;
-  profile: UserProfile;
   lang: Language;
 }
 
-const StatsCard: React.FC<Props> = ({ stats, profile, lang }) => {
+const StatsCard: React.FC<Props> = ({ stats, lang }) => {
   const t = translations[lang];
   if (!stats) return null;
 

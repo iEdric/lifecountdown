@@ -23,11 +23,3 @@ export interface LifeStats {
   workRemainingYears: number;
 }
 
-export enum LifePhase {
-  CHILDHOOD = 'Childhood',
-  EDUCATION = 'Education',
-  PRIME = 'Prime Years',
-  WISDOM = 'Wisdom Years',
-  RETIREMENT = 'Retirement'
-}
-
